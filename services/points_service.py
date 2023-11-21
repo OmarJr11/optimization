@@ -84,7 +84,8 @@ def generateNewPointList(pointsList: list, type: int):
             listPointNew.insert(0, point)
         else:
             listPoint0.insert(0, point)
-    return (listPoint0, listPointNew)     
+    return (listPoint0, listPointNew)
+
 """ 
     Se calcula un punto propuesto para la optimizacion dependiendo de los puntos ingresado y su rango
     pointsList: una lista de puntos (X,Y) ingresada por el usuario
@@ -104,6 +105,9 @@ def newPoint(pointsList: list, limitX: tuple, limitY: tuple):
             yHigher = (yHigher, point[1])[point[1] > yHigher]
     return ((xLess + xHigher)//2, (yLess + yHigher)//2)
 
+"""
+    Se busca los nuevos puntos posible para instalar el switch, para esto se analiza los 8 caso posibles
+"""
 def searchNewPoint(pointsList: list):
     quadrantXPositiveYPositive = newPoint(pointsList, (0, INFINITY), (0, INFINITY))
     quadrantXPositiveYNegative = newPoint(pointsList, (0, INFINITY), (-1 * INFINITY, -1))
