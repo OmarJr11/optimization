@@ -19,8 +19,6 @@ frm.pack(fill='both', expand=True, side='top')
 frm1: Frame
 frm2: Frame
 frm3: Frame
-frm4: Frame
-frm5: Frame
 
 pointsQuantity: int # Cantidad de puntos
 points: list = [] # Puntos
@@ -44,8 +42,6 @@ styles.configure(
     num = entero que indica que vista se mostrara
     data = data necesaria para la siguiente vista
 """
-
-
 def destroyFrm(num, data):
     global points, pointsQuantity, pointActual, pointX, pointY
     # Si el Frame es el numero 1, se guarda la cantidad de puntos a ingresar
@@ -66,7 +62,6 @@ def destroyFrm(num, data):
             pointActual += 1
             view_two()
 
-
     # Si el Frame es el numero 3, se destruye y se reinicia las vistas
     elif num == 3:
         frm3.destroy()
@@ -78,15 +73,8 @@ def destroyFrm(num, data):
         view_one()
 
 """ 
-    Funcion para reiniciar el proceso en caso de haber alguna equivocacion 
+    Funcion que muestra la primera vista para pedir la cantidad de puntos
 """
-
-
-""" 
-    Funcion que muestra la primera vista y guarda el modo si sera codificacion o decodificacion
-"""
-
-
 def view_one():
     global frm1
 
@@ -110,10 +98,8 @@ def view_one():
                command=lambda: destroyFrm(1, entry.get())).grid(column=1, row=1)
 
 """ 
-    Funcion que muestra la segunda vista y guarda la cadena binaria a utilizar
+    Funcion que muestra la segunda vista para ingresar los puntos
 """
-
-
 def view_two():
     global frm2
 
@@ -147,10 +133,8 @@ def view_two():
 
 
 """ 
-    Funcion que muestra la tercera vista y se pregunta el metodo a utilizar Hamming o CRC
+    Funcion que muestra la tercera vista y los resultados
 """
-
-
 def view_three(result):
     global frm3
 
